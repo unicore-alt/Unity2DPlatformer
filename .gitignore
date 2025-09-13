@@ -49,6 +49,16 @@ ExportedObj/
 *.opendb
 *.VC.db
 
+# Visual Studio
+.vs/
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+
+# Rider
+.idea/
+*.sln.iml
+
 # Unity3D generated meta files
 *.pidb.meta
 *.pdb.meta
