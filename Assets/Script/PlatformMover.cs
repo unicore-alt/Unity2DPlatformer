@@ -16,7 +16,7 @@ public class PlatformMover : MonoBehaviour
     private void FixedUpdate()
     {
         Vector2 direction = _movingRight ? Vector2.right : Vector2.left;
-        _rb.MovePosition(_rb.position + direction * (_speed * Time.deltaTime));
+        _rb.MovePosition(_rb.position + direction * (_speed * Time.fixedDeltaTime));
         _movingRight = _movingRight switch
         {
             true when _rb.position.x >= _startPos.x + _moveDistance => false,

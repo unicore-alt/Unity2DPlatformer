@@ -30,7 +30,6 @@ public class PlayerMove : MonoBehaviour
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
-        _rb.freezeRotation = true;
         _originalScaleX = Mathf.Abs(transform.localScale.x);
         _inputActions = new PlayerInputActions();
     }
@@ -75,6 +74,7 @@ public class PlayerMove : MonoBehaviour
 
     private void OnJump(InputAction.CallbackContext context)
     {
-        if (context.started && _isGrounded) _rb.linearVelocity = new Vector2(_rb.linearVelocity.x, _jumpForce);
+        if (context.started && _isGrounded) 
+            _rb.linearVelocity = new Vector2(_rb.linearVelocity.x, _jumpForce);
     }
 }
