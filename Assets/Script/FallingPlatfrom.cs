@@ -41,21 +41,16 @@ public class FallingPlatform : MonoBehaviour
     private IEnumerator ShakeAndFall()
     {
         float elapsed = 0f;
-        
         while (elapsed < _shakeDuration)
         {
             transform.position = _originalPosition + (Vector3)Random.insideUnitCircle * _shakeMagnitude;
             elapsed += Time.deltaTime;
             yield return null;
         }
-
         transform.position = _originalPosition;
         yield return new WaitForSeconds(_fallDelay);
-        
         _rb.bodyType = RigidbodyType2D.Dynamic;
-
         yield return new WaitForSeconds(_respawnDelay);
-        
         _rb.linearVelocity = Vector2.zero;
         _rb.angularVelocity = 0f;
         _rb.bodyType = RigidbodyType2D.Kinematic;
